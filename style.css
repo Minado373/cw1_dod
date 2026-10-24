@@ -60,6 +60,22 @@ div#ex6_animate_button_wrapper {
   background-color: #eee;
 }
 
+div#ex6 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 30px auto;
+  gap: 10px;
+}
+
+#ex6_content {
+  font-size: 25px;
+  font-weight: bold;
+  border: 2px solid #e8aeb7;
+  padding: 10px;
+  border-radius: 10px;
+}
+
 @keyframes changePosition {
   0% {
     left: 0;

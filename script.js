@@ -5,6 +5,8 @@
     BACKGROUND_BUTTON: "ex4_button",
     PHONE_INPUT: "ex2_text",
     PHONE_INPUT_COUNTER: "ex2_text_counter",
+    TIMER_BUTTON: "ex6_button",
+    TIMER_CONTENT: "ex6_content",
   };
 
   const MOVE_ANIMATION_CLASS = "move";
@@ -14,6 +16,8 @@
   const backgroundButton = getElement(HTML_IDS.BACKGROUND_BUTTON);
   const textElement = getElement(HTML_IDS.PHONE_INPUT);
   const textCounterElement = getElement(HTML_IDS.PHONE_INPUT_COUNTER);
+  const timerButton = getElement(HTML_IDS.TIMER_BUTTON);
+  const timerContent = getElement(HTML_IDS.TIMER_CONTENT);
 
   const MOVE_BUTTON_VALUES = ["Przesuń", "Stop"];
   const aestheticColors = [
@@ -60,7 +64,8 @@
     "#CAFFBF", // Pastel mint
   ];
   let randomBackgroundColorID;
-
+  let timerInterval = null;
+  let counter = 0;
   function getElement(elementId) {
     const element = document.getElementById(elementId);
     if (!element) {
@@ -77,6 +82,21 @@
     image.classList.remove(MOVE_ANIMATION_CLASS);
     button.textContent = MOVE_BUTTON_VALUES[0];
   }
+
+  function handleTimer(e) {
+    if (timerInterval) {
+      timerButton.textContent = "Start";
+      timerInterval = clearInterval(timerInterval);
+    } else {
+      timerButton.textContent = "Stop";
+      timerInterval = setInterval(() => {
+        counter++;
+        timerContent.textContent = counter;
+      }, 1000);
+    }
+  }
+
+  timerButton.addEventListener("click", handleTimer);
 
   textElement.addEventListener("input", (e) => {
     setTextCounterElement(e.target.value.length);
