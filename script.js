@@ -1,14 +1,21 @@
 (function () {
+  const HTML_IDS = {
+    ANIMATED_IMAGE: "ex6_element_img",
+    MOVE_BUTTON: "ex6_animate_button",
+    BACKGROUND_BUTTON: "ex4_button",
+    PHONE_INPUT: "ex2_text",
+    PHONE_INPUT_COUNTER: "ex2_text_counter",
+  };
+
   const MOVE_ANIMATION_CLASS = "move";
-  const IMAGE_ID = "ex6_element_img";
-  const BUTTON_ID = "ex6_animate_button";
-  const EX4_BUTTON_ID = "ex4_button";
 
-  const image = document.getElementById(IMAGE_ID);
-  const button = document.getElementById(BUTTON_ID);
-  const backgroundButton = document.getElementById(EX4_BUTTON_ID);
+  const image = getElement(HTML_IDS.ANIMATED_IMAGE);
+  const button = getElement(HTML_IDS.MOVE_BUTTON);
+  const backgroundButton = getElement(HTML_IDS.BACKGROUND_BUTTON);
+  const textElement = getElement(HTML_IDS.PHONE_INPUT);
+  const textCounterElement = getElement(HTML_IDS.PHONE_INPUT_COUNTER);
 
-  const BUTTON_VALUES = ["Przesuń", "Stop"];
+  const MOVE_BUTTON_VALUES = ["Przesuń", "Stop"];
   const aestheticColors = [
     // 🌸 Japanese / Sakura
     "#F2B8C6", // Sakura pink
@@ -54,16 +61,26 @@
   ];
   let randomBackgroundColorID;
 
-  if (!image || !button || !backgroundButton) {
-    console.error("Buttons or image not found");
-    return;
+  function getElement(elementId) {
+    const element = document.getElementById(elementId);
+    if (!element) {
+      console.error(`Nie znaleziono elementu o ID: ${elementId}`);
+      return;
+    }
+    return element;
+  }
+  function setTextCounterElement(textCounter) {
+    textCounterElement.textContent = textCounter;
   }
 
   function resetAnimation() {
     image.classList.remove(MOVE_ANIMATION_CLASS);
-    button.textContent = BUTTON_VALUES[0];
+    button.textContent = MOVE_BUTTON_VALUES[0];
   }
 
+  textElement.addEventListener("input", (e) => {
+    setTextCounterElement(e.target.value.length);
+  });
   button.addEventListener("click", () => {
     const isAnimating = image.classList.contains(MOVE_ANIMATION_CLASS);
 
@@ -71,7 +88,7 @@
       resetAnimation();
     } else {
       image.classList.add(MOVE_ANIMATION_CLASS);
-      button.textContent = BUTTON_VALUES[1];
+      button.textContent = MOVE_BUTTON_VALUES[1];
     }
   });
 
