@@ -1,0 +1,24 @@
+{
+  "name": "cw1_dod",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Minado373/cw1_dod.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Minado373/cw1_dod/issues"
+  },
+  "homepage": "https://github.com/Minado373/cw1_dod#readme",
+  "devDependencies": {
+    "typescript": "^7.0.2"
+  }
+}
