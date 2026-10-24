@@ -1,0 +1,74 @@
+body {
+  background-color: aliceblue;
+}
+
+.ex {
+  padding: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+}
+
+#ex3_one,
+#ex3_two {
+  border: 1px solid black;
+  padding: 5px;
+  margin: 5px;
+  height: 50px;
+}
+
+#ex3_element {
+  display: "block";
+  cursor: pointer;
+  background-color: red;
+  width: 100px;
+}
+
+div#ex6_element {
+  position: relative;
+  width: 100%;
+  height: 400px;
+}
+
+div#ex6_element img {
+  width: 300px;
+  position: absolute;
+  left: 0;
+  height: 100%;
+  object-fit: cover;
+}
+
+div#ex6_element img.move {
+  animation: changePosition 5s ease-in-out 0s 1 forwards;
+}
+
+div#ex6_animate_button_wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+button#ex6_animate_button {
+  width: 200px;
+  height: 50px;
+  background-color: white;
+  border: 2px solid #ddd;
+  border-radius: 20px;
+  font-family: sans-serif;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+button#ex6_animate_button:hover {
+  background-color: #eee;
+}
+
+@keyframes changePosition {
+  0% {
+    left: 0;
+  }
+  50% {
+    left: calc(100% - 300px);
+  }
+  100% {
+    left: 0;
+  }
+}
