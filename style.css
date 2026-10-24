@@ -46,7 +46,7 @@ div#ex6_animate_button_wrapper {
   justify-content: center;
 }
 
-button#ex6_animate_button {
+.button {
   width: 200px;
   height: 50px;
   background-color: white;
@@ -56,8 +56,7 @@ button#ex6_animate_button {
   cursor: pointer;
   transition: all 0.2s ease-in-out;
 }
-
-button#ex6_animate_button:hover {
+.button:hover {
   background-color: #eee;
 }
 
